@@ -1,0 +1,48 @@
+h1{
+    border-bottom: 4px solid #FF6859;
+    width: 100%;
+    margin: 2rem 5rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.tarjeta{
+    background-color: white;
+    margin: 1rem 5rem;
+}
+
+#titleZona{
+    border-bottom: 1px solid #314284;
+    font-size: 2rem;
+    color: #314284;
+    width: 100%;
+}
+
+form{
+    background-color: white;
+    width: 18rem;
+    right: 4rem;
+    padding: 2rem;
+}
+#buscar{
+    background-color: #FF6859;
+    width: 100%;
+    border-radius: 0.25rem;
+    margin-top: 1rem;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+input{
+    padding: 0.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+}
+  
+button:focus{
+    outline: none;
+}
+label{
+    font-weight: bold;
+}

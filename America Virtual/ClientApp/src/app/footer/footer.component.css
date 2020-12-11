@@ -1,0 +1,12 @@
+footer{
+    background-color: #141414;
+    padding: 1rem 4rem;
+}
+h1{
+    font-size: 1rem;
+    color: #979797;
+}
+img{
+    filter: invert();
+    height: 2rem;
+}
