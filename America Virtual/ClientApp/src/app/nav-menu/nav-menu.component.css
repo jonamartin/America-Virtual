@@ -1,0 +1,51 @@
+header{
+  background-color: #FF6859;
+}
+nav>img {
+  margin: 0.5rem 4rem;
+  height: 3rem;
+  filter:invert();
+}
+#desplegableSesion{
+  background: none;
+  margin: 0.5rem 4rem;
+  padding: 0 2rem;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: bold;
+  border: 1px solid white;
+}
+
+button img{
+  height: 1rem;
+  margin-left: 0.25rem;
+}
+form{
+  background-color: white;
+  position: absolute;
+  width: 18rem;
+  right: 4rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  box-shadow: 0 2px 5px #00000088;
+  padding: 2rem;
+}
+#iniciarSesion{
+  background-color: #FF6859;
+  width: 100%;
+  border-radius: 0.25rem;
+  margin-top: 1rem;
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+input{
+  padding: 0.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+}
+
+button:focus{
+  outline: none;
+}

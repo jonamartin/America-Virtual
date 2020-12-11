@@ -1,0 +1,15 @@
+<header>
+  <nav class="d-flex justify-content-between">
+    <img src="/assets/images/AmericaVirtual.svg" alt="logo">
+    <button id="desplegableSesion" (click)="toggleForm()">INICIAR SESIÓN <img src="/assets/images/user.svg" alt="user"></button>
+  </nav>
+  <div [hidden]="!formVisible">
+    <form class="d-flex flex-column align-self-end">
+      <label for="mail">Usuario</label>
+      <input type="email" id="mail" placeholder="americavirtual@gmail.com">
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" placeholder="••••••••">
+      <button id="iniciarSesion">INICIAR SESIÓN</button>
+    </form>
+  </div>  
+</header>
