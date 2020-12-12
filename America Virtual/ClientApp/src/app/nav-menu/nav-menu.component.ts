@@ -10,7 +10,6 @@ export class NavMenuComponent {
 
   toggleForm() {
     this.formVisible = this.formVisible ? false : true;
-    console.log(this.formVisible);
   }
 
 }

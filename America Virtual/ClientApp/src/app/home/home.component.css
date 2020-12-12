@@ -1,21 +1,21 @@
-h1{
+#tituloServicio{
     border-bottom: 4px solid #FF6859;
     width: 100%;
-    margin: 2rem 5rem;
+    margin: 2rem 4rem;
     padding: 1rem;
     text-align: center;
 }
-
-.tarjeta{
-    background-color: white;
-    margin: 1rem 5rem;
+.row{
+    margin: 0;
 }
-
-#titleZona{
+.titleZona{
     border-bottom: 1px solid #314284;
     font-size: 2rem;
     color: #314284;
     width: 100%;
+    margin: 0.5rem 2rem;
+    padding: 1rem;
+    text-align: center;
 }
 
 form{
@@ -45,4 +45,94 @@ button:focus{
 }
 label{
     font-weight: bold;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.one{
+    margin-left: 4rem;
+    grid-column: 1/1;
+    grid-row: 1;
+    background-color: white;
+    box-shadow: 0 2px 5px #0000003f;
+    border-radius: 0.25rem;
+}
+.two{
+    margin-right: 4rem;
+    grid-column: 2/2;
+    grid-row: 1;
+    background-color: white;
+    box-shadow: 0 2px 5px #0000003f;
+    border-radius: 0.25rem;
+}
+.three{
+    margin: 1rem 4rem;
+    background-color: white;
+    box-shadow: 0 2px 5px #0000003f;
+    border-radius: 0.25rem;
+    padding: 2rem;
+}
+.weatherImg{
+    height: 10rem;
+    margin: 1rem 1rem;
+}
+.three i{
+    font-size: 8rem;
+    line-height: 1.5;
+    color: #b7b7b7;
+    display: flex;
+    justify-content: center;
+}
+.day{
+    font-size: 2rem;
+    color: #314284;
+    text-align: center;
+    margin: 1rem 1rem;
+}
+label{
+    display: block;
+}
+.weekTemp{
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 1rem 1rem;
+    letter-spacing: 0.25rem;
+}
+.three>div:not(:last-child){
+    border-right: 2px solid #d1d1d1;
+}
+.reporteImg{
+    font-size: 8rem;
+    line-height: 1.5;
+    color: #b7b7b7;
+}
+#pais, #ciudad{
+    color: #b7b7b7;
+    margin-left: 1rem;
+    font-size: 1.25rem;
+}
+
+#dia, #clima{
+    margin-left: 1rem;
+    letter-spacing: 0.25rem;
+    font-size: 1.75rem;
+}
+#tempCelcius{
+    margin-left: 1rem;
+    font-size: 4rem;
+}
+#tempFarenheit{
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    letter-spacing: 0.25rem;
+}
+#precipitaciones, #humedad, #viento{
+    text-align: end;
+    font-weight: normal;
 }

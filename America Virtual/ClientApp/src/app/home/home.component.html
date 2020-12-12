@@ -1,25 +1,72 @@
 <div>
   <div class="row">
-    <h1>SERVICIO DEL CLIMA</h1>
+    <h1 id="tituloServicio">SERVICIO DEL CLIMA</h1>
   </div>
-  <div class="row">
-    <div class="col-6 tarjeta">
+  <div class="grid">
+    <div class="one">
       <div class="row">
-        <h1 id="titleZona">Seleccioná la zona</h1>
+        <h1 class="titleZona">Seleccioná la zona</h1>
       </div>
-      <div class="row">
-        <form class="d-flex flex-column align-self-end">
-          <label for="pais">País</label>
-          <input type="email" id="pais" placeholder="Seleccioná un país">
-          <label for="ciudad">Ciudad</label>
-          <input type="text" id="ciudad" placeholder="Seleccioná una ciudad">
-          <button id="buscar">BUSCAR</button>
-        </form>
-      </div>
+      <form class="d-flex flex-column align-self-end">
+        <label for="pais">País</label>
+        <input type="email" id="pais" placeholder="Seleccioná un país">
+        <label for="ciudad">Ciudad</label>
+        <input type="text" id="ciudad" placeholder="Seleccioná una ciudad">
+        <button id="buscar">BUSCAR</button>
+      </form>
     </div>
-    <div class="col-6 tarjeta">
-      <div class="row">Reporte</div>
-
+    <div class="two">
+      <div class="row">
+        <h1 class="titleZona">Reporte</h1>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <label id="pais">Argentina</label>
+          <label id="ciudad">Ciudad de Buenos Aires</label>
+          <label id="dia">VIERNES</label>
+          <label id="clima">SOLEADO</label>
+          <label id="tempCelcius">22 °c</label>
+          <label id="tempFarenheit">71.6 °F</label>
+        </div>
+        <div class="col-6">
+          <i class="wi wi-day-sunny wi-flip-horizontal reporteImg"></i>
+          <label id="precipitaciones">Prob. de precipitaciones: 0%</label>
+          <label id="humedad">Humedad: 54%</label>
+          <label id="viento">Viento:a 10Km/h.</label>
+        </div>
+      </div>      
+    </div>
+  </div>
+  <div class="three row">
+    <div class="col flex-column">
+      <label class="day">LUNES</label>
+      <i class="wi wi-day-cloudy wi-flip-horizontal"></i>
+      <label class="weekTemp">22° C</label>
+      <label class="weekTemp">71.6° F</label>
+    </div>
+    <div class="col flex-column">
+      <label class="day">MARTES</label>
+      <i class="wi wi-cloudy wi-flip-horizontal"></i>
+      <label class="weekTemp">22° C</label>
+      <label class="weekTemp">71.6° F</label>
+    </div>
+    <div class="col flex-column">
+      <label class="day">MIERCOLES</label>
+      <i class="wi wi-rain"></i>
+      <label class="weekTemp">22° C</label>
+      <label class="weekTemp">71.6° F</label>
+    </div>
+    <div class="col flex-column">
+      <label class="day">JUEVES</label>
+      <i class="wi wi-thunderstorm"></i>
+      <label class="weekTemp">22° C</label>
+      <label class="weekTemp">71.6° F</label>
+    </div>
+    <div class="col flex-column">
+      <label class="day">VIERNES</label>
+      <i class="wi wi-snowflake-cold"></i>
+      <label class="weekTemp">22° C</label>
+      <label class="weekTemp">71.6° F</label>
     </div>
   </div>
 </div>

@@ -29,6 +29,7 @@ form{
   border-bottom-right-radius: 0.5rem;
   box-shadow: 0 2px 5px #00000088;
   padding: 2rem;
+  z-index: 10;
 }
 #iniciarSesion{
   background-color: #FF6859;
@@ -38,6 +39,7 @@ form{
   color: white;
   font-weight: bold;
   border: none;
+  padding: 0.25rem;
 }
 input{
   padding: 0.25rem;
