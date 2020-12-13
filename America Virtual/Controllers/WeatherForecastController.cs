@@ -13,6 +13,7 @@ namespace America_Virtual.Controllers
     public class WeatherForecastController : ControllerBase
     {
         private readonly ILogger<WeatherForecastController> _logger;
+        WeatherForecastService weatherForecastService = new WeatherForecastService();
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
@@ -22,9 +23,13 @@ namespace America_Virtual.Controllers
         [HttpGet("Current")]
         public async Task<ActionResult> CurrentWeatherForecast(string location)
         {
-            WeatherForecastService weatherForecastService = new WeatherForecastService();
+            return Ok(await weatherForecastService.GetCurrentByCity(location));
+        }
 
-            return Ok(await weatherForecastService.getCurrentByCity(location));
+        [HttpGet("Forecast")]
+        public async Task<ActionResult> ForecastWeatherForecast(string location)
+        {      
+            return Ok(await weatherForecastService.GetForecastByCity(location));
         }
     }
 }
