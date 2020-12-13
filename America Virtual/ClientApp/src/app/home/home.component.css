@@ -26,12 +26,12 @@ form{
 }
 #buscar{
     background-color: #FF6859;
-    width: 100%;
     border-radius: 0.25rem;
     margin-top: 1rem;
     color: white;
     font-weight: bold;
     border: none;
+    height: 2.5rem;
 }
 input{
     padding: 0.25rem;
