@@ -15,5 +15,13 @@ namespace America_Virtual
             .AddJsonFile("appsettings.json").Build();
             return config.GetValue<T>(keyName);
         }
+
+        public static T GetConfigurationSection<T>(string keyName)
+        {
+            IConfigurationRoot config = new ConfigurationBuilder()
+            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+            .AddJsonFile("appsettings.json").Build();
+            return config.GetSection(keyName).Get<T>();
+        }
     }
 }

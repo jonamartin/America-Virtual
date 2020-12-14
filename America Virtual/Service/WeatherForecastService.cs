@@ -5,7 +5,6 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
-using Models;
 
 namespace America_Virtual
 {
@@ -45,7 +44,7 @@ namespace America_Virtual
 
         public async Task<IEnumerable<WeatherForecast>> GetForecastByCity(string latitude, string longitude)
         {
-            string requestUri = string.Format("https://api.openweathermap.org/data/2.5/onecall?lat={0}&lon={1}&exclude=current,minutely,hourly,alerts&appid={2}&units=metric&lang=sp", latitude, longitude, GetConfigurationKey("OpenWeatherAPIKey"));
+            string requestUri = string.Format("https://api.openweathermap.org/data/2.5/onecall?lat={0}&lon={1}&exclude=current,minutely,hourly,alerts&appid={2}&units=metric&lang=sp", latitude, longitude, ConfigurationService.GetConfigurationKey<string>("OpenWeatherAPIKey"));
             dynamic json = await Request(requestUri);
             List<WeatherForecast> list = new List<WeatherForecast>();
             for(int i = 0; i <= 5; i++)

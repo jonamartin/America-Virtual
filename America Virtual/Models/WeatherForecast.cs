@@ -11,5 +11,8 @@ namespace America_Virtual
         public int rainProbability {get; set;}
         public int humidity {get; set;}
         public float windSpeed {get; set;}
+        public int weatherId { get; set; }
+        public string longitude { get; set; }
+        public string latitude { get; set; }
     }
 }
