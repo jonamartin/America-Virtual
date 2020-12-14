@@ -7,66 +7,44 @@
       <div class="row">
         <h1 class="titleZona">Seleccioná la zona</h1>
       </div>
-      <form class="d-flex flex-column align-self-end w-100">
+      <form class="d-flex flex-column align-self-end w-100" [formGroup]="busqueda">
         <label for="pais">País</label>
-        <input type="email" id="pais" placeholder="Seleccioná un país">
+        <input type="email" placeholder="Seleccioná un país" formControlName="country">
         <label for="ciudad">Ciudad</label>
-        <input type="text" id="ciudad" placeholder="Seleccioná una ciudad">
-        <button id="buscar">BUSCAR</button>
+        <input type="text" placeholder="Seleccioná una ciudad" formControlName="city">
+        <button id="buscar" (click)="search()">BUSCAR</button>
       </form>
     </div>
     <div class="two">
       <div class="row">
         <h1 class="titleZona">Reporte</h1>
       </div>
-      <div class="row">
+      <div class="row" *ngIf="currentResult">
         <div class="col-6">
-          <label id="pais">Argentina</label>
-          <label id="ciudad">Ciudad de Buenos Aires</label>
-          <label id="dia">VIERNES</label>
-          <label id="clima">SOLEADO</label>
-          <label id="tempCelcius">22 °c</label>
-          <label id="tempFarenheit">71.6 °F</label>
+          <label id="pais">{{currentResult.country}}</label>
+          <label id="ciudad">{{currentResult.city}}</label>
+          <label id="dia">{{currentResult.day.toUpperCase()}}</label>
+          <label id="clima">{{currentResult.weatherDescription.toUpperCase()}}</label>
+          <label id="tempCelcius">{{currentResult.celsiusTemperature}}°</label>
+          <label id="tempFarenheit">{{currentResult.fahrenheitTemperature}}°</label>
         </div>
         <div class="col-6">
-          <i class="wi wi-day-sunny wi-flip-horizontal reporteImg"></i>
-          <label id="precipitaciones">Prob. de precipitaciones: 0%</label>
-          <label id="humedad">Humedad: 54%</label>
-          <label id="viento">Viento:a 10Km/h.</label>
+          <i [className]="'wi wi-owm-'+ currentResult.weatherId +' wi-flip-horizontal reporteImg'"></i>
+          <section>
+            <label id="precipitaciones">Prob. de precipitaciones: 0%</label>
+            <label id="humedad">Humedad: {{currentResult.humidity}}%</label>
+            <label id="viento">Viento:a {{currentResult.windSpeed}}Km/h.</label>
+          </section>
         </div>
       </div>      
     </div>
   </div>
   <div class="three row">
-    <div class="col flex-column">
-      <label class="day">LUNES</label>
-      <i class="wi wi-day-cloudy wi-flip-horizontal"></i>
-      <label class="weekTemp">22° C</label>
-      <label class="weekTemp">71.6° F</label>
-    </div>
-    <div class="col flex-column">
-      <label class="day">MARTES</label>
-      <i class="wi wi-cloudy wi-flip-horizontal"></i>
-      <label class="weekTemp">22° C</label>
-      <label class="weekTemp">71.6° F</label>
-    </div>
-    <div class="col flex-column">
-      <label class="day">MIERCOLES</label>
-      <i class="wi wi-rain"></i>
-      <label class="weekTemp">22° C</label>
-      <label class="weekTemp">71.6° F</label>
-    </div>
-    <div class="col flex-column">
-      <label class="day">JUEVES</label>
-      <i class="wi wi-thunderstorm"></i>
-      <label class="weekTemp">22° C</label>
-      <label class="weekTemp">71.6° F</label>
-    </div>
-    <div class="col flex-column">
-      <label class="day">VIERNES</label>
-      <i class="wi wi-snowflake-cold"></i>
-      <label class="weekTemp">22° C</label>
-      <label class="weekTemp">71.6° F</label>
+    <div class="col flex-column" *ngFor="let result of forecastResult">
+      <label class="day">{{result.day.toUpperCase()}}</label>
+      <i [className]="'wi wi-owm-'+ result.weatherId +' wi-flip-horizontal'"></i>
+      <label class="weekTemp">{{result.celsiusTemperature}}°</label>
+      <label class="weekTemp">{{result.fahrenheitTemperature}}°</label>
     </div>
   </div>
 </div>

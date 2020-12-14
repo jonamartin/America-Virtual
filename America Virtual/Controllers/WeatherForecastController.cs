@@ -27,9 +27,9 @@ namespace America_Virtual.Controllers
         }
 
         [HttpGet("Forecast")]
-        public async Task<ActionResult> ForecastWeatherForecast(string location)
+        public async Task<ActionResult> ForecastWeatherForecast(string latitude, string longitude)
         {      
-            return Ok(await weatherForecastService.GetForecastByCity(location));
+            return Ok(await weatherForecastService.GetForecastByCity(latitude,longitude));
         }
     }
 }
