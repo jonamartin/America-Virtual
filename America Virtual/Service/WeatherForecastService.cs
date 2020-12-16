@@ -26,7 +26,7 @@ namespace America_Virtual
             WeatherForecast weatherForecast = new WeatherForecast{
                 day = DateTime.Today.ToString("dddd"),
                 weatherDescription = json.weather[0].description,
-                celsiusTemperature = (int)json.main.temp,
+                celsiusTemperature = Math.Round(Convert.ToDecimal(json.main.temp),1),
                 humidity = json.main.humidity,
                 windSpeed = json.wind.speed,
                 longitude = json.coord.lon,
@@ -53,7 +53,7 @@ namespace America_Virtual
                 WeatherForecast weatherForecast = new WeatherForecast{
                 day =  UnixTimeToDayOfWeek(Int64.Parse(day.dt.ToString())),
                 weatherDescription = day.weather[0].description,
-                celsiusTemperature = day.temp.day,
+                celsiusTemperature = Math.Round(Convert.ToDecimal(day.temp.day),1),
                 rainProbability = day.pop*100,
                 humidity = day.humidity,
                 windSpeed = day.wind_speed,

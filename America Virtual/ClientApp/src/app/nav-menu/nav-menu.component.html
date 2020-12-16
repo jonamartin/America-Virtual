@@ -1,15 +1,16 @@
 <header>
   <nav class="d-flex justify-content-between">
     <img src="/assets/images/AmericaVirtual.svg" alt="logo">
-    <button id="desplegableSesion" (click)="toggleForm()">INICIAR SESIÓN <img src="/assets/images/user.svg" alt="user"></button>
+    <button id="desplegableSesion" [hidden]="isLoggedIn" (click)="toggleForm()">INICIAR SESIÓN <img src="/assets/images/user.svg" alt="user"></button>
+    <button id="desplegableSesion" [hidden]="!isLoggedIn" (click)="logOut()">CERRAR SESIÓN</button>
   </nav>
   <div [hidden]="!formVisible">
-    <form class="d-flex flex-column align-self-end">
+    <form class="d-flex flex-column align-self-end" [formGroup]="loginForm">
       <label for="mail">Usuario</label>
-      <input type="email" id="mail" placeholder="americavirtual@gmail.com">
+      <input type="email" id="mail" placeholder="americavirtual@gmail.com" formControlName="email">
       <label for="password">Contraseña</label>
-      <input type="password" id="password" placeholder="••••••••">
-      <button id="iniciarSesion">INICIAR SESIÓN</button>
+      <input type="password" id="password" placeholder="••••••••" formControlName="password">
+      <button id="iniciarSesion" (click)="logIn()">INICIAR SESIÓN</button>      
     </form>
   </div>  
 </header>

@@ -6,8 +6,8 @@ namespace America_Virtual
     {
         public string day {get; set;}
         public string weatherDescription {get; set;}
-        public float celsiusTemperature {get; set;}
-        public float farenheitTemperature => (this.celsiusTemperature*1.8f)+32;
+        public decimal celsiusTemperature {get; set;}
+        public decimal fahrenheitTemperature => Math.Round((this.celsiusTemperature*1.8m)+32,1);
         public int rainProbability {get; set;}
         public int humidity {get; set;}
         public float windSpeed {get; set;}

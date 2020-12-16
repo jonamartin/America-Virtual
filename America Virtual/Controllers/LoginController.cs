@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -17,11 +18,13 @@ namespace America_Virtual.Controllers
     [Route("User")]
     public class LoginController : ControllerBase
     {
-        private readonly IConfiguration Configuration;
-        private readonly UsuariosService UsuariosService;
-        public LoginController()
+        private readonly UsersService UsuariosService;
+        private readonly ILogger<LoginController> _logger;
+
+        public LoginController(ILogger<LoginController> logger)
         {
-            this.UsuariosService = new UsuariosService();
+            this.UsuariosService = new UsersService();
+            _logger = logger;
         }
 
         [AllowAnonymous]
@@ -32,40 +35,17 @@ namespace America_Virtual.Controllers
 
             if (user is null)
             {
-                return BadRequest(new { error = "Usuario o contraseña incorrecto" });
+                _logger.LogInformation("Login For: " + userDto.Email + " failed.");
+                return StatusCode(403, new { error = "Usuario o contraseña incorrecto" });
             }
             else
             {
-                string tokenString = GenJwt(user);
+                string tokenString = UsuariosService.GenJwt(user);
+                _logger.LogInformation("Login For: " + userDto.Email + "succesfully.");
 
                 return Ok(new { token = tokenString });
             }
         }
-        public string GenJwt(User user)
-        {
-            string jwtKey = ConfigurationService.GetConfigurationKey<string>("JwtKey");
-            string jwtIssuer = ConfigurationService.GetConfigurationKey<string>("JwtIssuer");
-            var claims = new List<Claim>()
-            {
-                new Claim(JwtRegisteredClaimNames.Sub, user.Email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(JwtRegisteredClaimNames.Nbf,
-                new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds().ToString()),
-                new Claim(JwtRegisteredClaimNames.Exp,
-                new DateTimeOffset(DateTime.Now.AddDays(1)).ToUnixTimeSeconds().ToString()),
-            };
-
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
-            var token = new JwtSecurityToken(
-              jwtIssuer,
-              jwtIssuer,
-              claims,
-              expires: DateTime.Now.AddDays(1),
-              signingCredentials: credentials);
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
-        }
+        
     }
 }
